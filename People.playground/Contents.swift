@@ -65,16 +65,84 @@ class Nurse: People {
         self.surname = surname
         super.init(name: name, height: height, weight: weight, sex: sex)
     }
+    override func say() -> String{
+        return ("\(super.say()) \nI'm nurse")
+}
 }
 
 var nurse = Nurse(name: "Diana", surname: "Smitt", height: 1.55, weight: 45, sex: .woman)
 arrayOfPeople.append(nurse)
 
-for person in arrayOfPeople {
-    if let person = person as? Nurse {
-        print("\(person.fullName) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
-        print(person.say())
-    } else {
-        print("\(person.name) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
-        print(person.say())}
+//for person in arrayOfPeople {
+//    if let person = person as? Nurse {
+//        print("\(person.fullName) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
+//        print(person.say())
+//    } else {
+//        print("\(person.name) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
+//        print(person.say())}
+//}
+//
+//for person in arrayOfPeople.reversed() {
+//    if let person = person as? Nurse {
+//        print("\(person.fullName) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
+//        print(person.say())
+//    } else {
+//        print("\(person.name) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
+//        print(person.say())}
+//}
+
+class Marsianin {
+    enum Color {
+        case yellow
+        case black
+        case green
+    }
+    
+    var colorOfSkin: Color
+    
+    init(colorOfSkin: Color) {
+        self.colorOfSkin = colorOfSkin
+    }
+    
+    func say() -> String {
+        "Hello Mars!"
+    }
 }
+
+class SmallMarsianin: Marsianin {
+    override func say() -> String {
+        "???"
+    }
+}
+
+class BigMarsianin: Marsianin {
+    override func say() -> String {
+        "Every big marsianin should eat"
+    }
+}
+let mars1 = Marsianin(colorOfSkin: .black)
+let small1 = SmallMarsianin(colorOfSkin: .green)
+let big1 = BigMarsianin(colorOfSkin: .yellow)
+
+var newArray: [Any] = []
+newArray.append(nurse)
+newArray.append(mars1)
+newArray.append(small1)
+
+for object in newArray {
+    print(type(of: object))
+    if let object = object as? People {
+        for person in arrayOfPeople.reversed() {
+            if let person = person as? Nurse {
+                print("\(person.fullName) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
+                print(person.say())
+            } else {
+                print("\(person.name) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
+                print(person.say())}
+        }
+    } else if let object = object as? Marsianin {
+        print(object.colorOfSkin)
+        print(object.say())
+    }
+}
+
