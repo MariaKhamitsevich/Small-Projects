@@ -131,7 +131,8 @@ newArray.append(small1)
 
 for object in newArray {
     print(type(of: object))
-    if let object = object as? People {
+    
+    if let _ = object as? People {
         for person in arrayOfPeople.reversed() {
             if let person = person as? Nurse {
                 print("\(person.fullName) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
@@ -146,3 +147,25 @@ for object in newArray {
     }
 }
 
+arrayOfPeople //4
+var arrayOfMars: [Marsianin] = [mars1, small1, big1] //3
+arrayOfPeople.count
+
+func printArrays() {
+    if arrayOfPeople.count >= arrayOfMars.count {
+        for i in (1...arrayOfPeople.count) {
+            print(arrayOfPeople[i-1].say())
+            if i <= arrayOfMars.count {
+                print(arrayOfMars[i-1].say())
+            }
+        }
+    } else {for i in (1...arrayOfMars.count) {
+        print(arrayOfMars[i-1].say())
+        if i <= arrayOfPeople.count {
+            print(arrayOfPeople[i-1].say())
+}
+    }
+}
+}
+
+printArrays()
