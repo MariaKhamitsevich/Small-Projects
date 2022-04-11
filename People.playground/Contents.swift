@@ -73,23 +73,23 @@ class Nurse: People {
 var nurse = Nurse(name: "Diana", surname: "Smitt", height: 1.55, weight: 45, sex: .woman)
 arrayOfPeople.append(nurse)
 
-//for person in arrayOfPeople {
-//    if let person = person as? Nurse {
-//        print("\(person.fullName) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
-//        print(person.say())
-//    } else {
-//        print("\(person.name) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
-//        print(person.say())}
-//}
-//
-//for person in arrayOfPeople.reversed() {
-//    if let person = person as? Nurse {
-//        print("\(person.fullName) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
-//        print(person.say())
-//    } else {
-//        print("\(person.name) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
-//        print(person.say())}
-//}
+for person in arrayOfPeople {
+    if let person = person as? Nurse {
+        print("\(person.fullName) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
+        print(person.say())
+    } else {
+        print("\(person.name) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
+        print(person.say())}
+}
+
+for person in arrayOfPeople.reversed() {
+    if let person = person as? Nurse {
+        print("\(person.fullName) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
+        print(person.say())
+    } else {
+        print("\(person.name) is \(person.sex.rawValue), height is \(person.height) m, weight is \(person.weight) kg")
+        print(person.say())}
+}
 
 class Marsianin {
     enum Color {
@@ -99,9 +99,11 @@ class Marsianin {
     }
     
     var colorOfSkin: Color
+    var nickname: String
     
-    init(colorOfSkin: Color) {
+    init(colorOfSkin: Color, nickname: String) {
         self.colorOfSkin = colorOfSkin
+        self.nickname = nickname
     }
     
     func say() -> String {
@@ -120,9 +122,9 @@ class BigMarsianin: Marsianin {
         "Every big marsianin should eat"
     }
 }
-let mars1 = Marsianin(colorOfSkin: .black)
-let small1 = SmallMarsianin(colorOfSkin: .green)
-let big1 = BigMarsianin(colorOfSkin: .yellow)
+let mars1 = Marsianin(colorOfSkin: .black, nickname: "Ab")
+let small1 = SmallMarsianin(colorOfSkin: .green, nickname: "Lino")
+let big1 = BigMarsianin(colorOfSkin: .yellow, nickname: "N32")
 
 var newArray: [Any] = []
 newArray.append(nurse)
@@ -169,3 +171,40 @@ func printArrays() {
 }
 
 printArrays()
+newArray.append(cook)
+newArray.sort(by: {(first: Any, second: Any) -> Bool in
+    if let first = first as? People,
+    let second = second as? People {
+        return first.name < second.name
+    } else if let first = first as? Marsianin,
+         let second = second as? Marsianin {
+        return first.nickname < second.nickname
+    } else if let first = first as? People,
+              let second = second as? Marsianin {
+        return first.name < second.nickname
+    } else if let first = first as? Marsianin,
+    let second = second as? People {
+        return first.nickname < second.name
+    } else {
+        return false
+    }
+})
+newArray
+//var element: [String] = newArray.map({element -> String in
+//    switch element {
+//    case let people as People:
+//        return people.name
+//    case let marsianin as Marsianin:
+//        return marsianin.nickname
+//    default:
+//        return ""
+//    }
+//})
+
+for i in newArray {
+    if let element = i as? People {
+        print(element.name)
+    } else if let element = i as? Marsianin {
+        print(element.nickname)
+    }
+}
