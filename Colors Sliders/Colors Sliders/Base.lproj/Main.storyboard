@@ -81,19 +81,19 @@
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="F58-at-gAK">
                                         <rect key="frame" x="-2" y="0.0" width="203" height="31"/>
                                         <connections>
-                                            <action selector="redSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="C2a-6O-Yg9"/>
+                                            <action selector="slidersAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="2GI-Yr-Ocn"/>
                                         </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="2uZ-YQ-mil">
+                                    <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="2uZ-YQ-mil">
                                         <rect key="frame" x="-2" y="54" width="203" height="31"/>
                                         <connections>
-                                            <action selector="greenSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="5qv-Z4-ZvW"/>
+                                            <action selector="slidersAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="i8j-U7-J38"/>
                                         </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="wmb-eu-sey">
+                                    <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="wmb-eu-sey">
                                         <rect key="frame" x="-2" y="108" width="203" height="31"/>
                                         <connections>
-                                            <action selector="blueSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="e4c-4o-H0I"/>
+                                            <action selector="slidersAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="YAw-RF-b1C"/>
                                         </connections>
                                     </slider>
                                 </subviews>

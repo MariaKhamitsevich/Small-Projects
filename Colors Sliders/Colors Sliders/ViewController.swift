@@ -18,42 +18,28 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainView.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+        mainView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func redSliderAction(_ sender: Any) {
-        redLabel.text = String(Int(redSlider.value))
+    private func setColor() {
         mainView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value / 255),
             green: CGFloat(greenSlider.value / 255),
             blue: CGFloat(blueSlider.value / 255),
             alpha: 1)
-        print(redSlider.value)
-        print(greenSlider.value)
-        print(blueSlider.value)
     }
     
-    @IBAction func greenSliderAction(_ sender: Any) {
-        greenLabel.text = String(Int(greenSlider.value))
-        mainView.backgroundColor = UIColor(
-            red: CGFloat(redSlider.value / 255),
-            green: CGFloat(greenSlider.value / 255),
-            blue: CGFloat(blueSlider.value / 255),
-            alpha: 1)
-        print(redSlider.value)
-        print(greenSlider.value)
-        print(blueSlider.value)
+    @IBAction func slidersAction(_ sender: Any) {
+        guard let slider = sender as? UISlider else { return }
         
-    }
-
-    @IBAction func blueSliderAction(_ sender: Any) {
-        blueLabel.text = String(Int(blueSlider.value))
-        mainView.backgroundColor = UIColor(
-            red: CGFloat(redSlider.value / 255),
-            green: CGFloat(greenSlider.value / 255),
-            blue: CGFloat(blueSlider.value / 255),
-            alpha: 1)
+        setColor()
+        switch slider.tag {
+        case 0: redLabel.text = String(Int(redSlider.value))
+        case 1: greenLabel.text = String(Int(greenSlider.value))
+        case 2: blueLabel.text = String(Int(blueSlider.value))
+        default: break
+        }
     }
 }
 
